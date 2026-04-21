@@ -112,7 +112,7 @@ ID               PID      STATE      STARTED              SOFT(MiB)  HARD(MiB)  
 beta             4819     running    2026-04-21 15:53:02  64         96         running
 alpha            4810     running    2026-04-21 15:53:02  48         80
 ```
-
+![ss](Screenshots/5.png)
 ### Run a Container and Wait for Exit
 
 ```bash
@@ -128,7 +128,7 @@ Container 'test' finished: exited (code=0)
 Log for 'test':
 hello from container
 ```
-![ss](Screenshots/5.png)
+![ss](Screenshots/6.png)
 ---
 
 ## 3. Memory Limit Test
@@ -153,7 +153,7 @@ Container 'memtest' finished: hard_limit_killed (code=137)
 [container_monitor] HARD LIMIT container=memtest pid=4884 rss=25763840 limit=20971520
 [container_monitor] Unregister request container=memtest pid=4884
 ```
-![ss](Screenshots/6.png)
+![ss](Screenshots/7.png)
 This confirms the kernel module correctly detected both the soft limit breach (RSS ~16.6 MiB > 10 MiB) and the hard limit breach (RSS ~24.6 MiB > 20 MiB), then delivered SIGKILL.
 
 ---
@@ -194,7 +194,7 @@ cpu_hog alive elapsed=11 accumulator=0
 cpu_hog alive elapsed=20 accumulator=0
 cpu_hog done duration=20 accumulator=0
 ```
-![ss](Screenshots/7.png)
+![ss](Screenshots/8.png)
 > **Note:** In this run, c2 (nice -5) had a gap at elapsed=10, showing it was briefly preempted. The CFS weight difference between nice -5 and nice +10 is still significant, and c2 received proportionally more CPU time overall.
 
 ---
