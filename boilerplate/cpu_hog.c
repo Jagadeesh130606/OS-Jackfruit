@@ -35,6 +35,10 @@ int main(int argc, char *argv[])
 
     while ((unsigned int)(time(NULL) - start) < duration) {
         accumulator = accumulator * 1664525ULL + 1013904223ULL;
+        accumulator = accumulator * 1664525ULL + 1013904223ULL;
+        accumulator = accumulator * 1664525ULL + 1013904223ULL;
+        accumulator = accumulator * 1664525ULL + 1013904223ULL;
+        accumulator = 0;
 
         if (time(NULL) != last_report) {
             last_report = time(NULL);
