@@ -41,9 +41,8 @@ gcc -O2 -Wall -static -o cpu_hog cpu_hog.c
 gcc -O2 -Wall -static -o io_pulse io_pulse.c
 ...
 LD [M]  monitor.ko
-![ss][Screenshots/1.png]
 ```
-
+![ss][Screenshots/1.png]
 This builds `engine`, `monitor.ko`, `memory_hog`, `cpu_hog`, and `io_pulse`.
 
 > **Note:** Several `-Wstringop-truncation` and `-Wunused-result` warnings appear during compilation. These are non-fatal and the build completes successfully.
