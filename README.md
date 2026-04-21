@@ -42,7 +42,7 @@ gcc -O2 -Wall -static -o io_pulse io_pulse.c
 ...
 LD [M]  monitor.ko
 ```
-![ss][Screenshots/1.png]
+![ss](Screenshots/1.png)
 This builds `engine`, `monitor.ko`, `memory_hog`, `cpu_hog`, and `io_pulse`.
 
 > **Note:** Several `-Wstringop-truncation` and `-Wunused-result` warnings appear during compilation. These are non-fatal and the build completes successfully.
@@ -66,6 +66,7 @@ ls /dev/container_monitor
 ```
 /dev/container_monitor
 ```
+![ss](Screenshots/2.png)
 
 ### Start Supervisor
 
@@ -77,7 +78,7 @@ sudo ./engine supervisor ./rootfs-base
 ```
 [supervisor] Ready on /tmp/mini_runtime.sock
 ```
-
+![ss](Screenshots/3.png)
 Leave this running. Open a second terminal for CLI commands.
 
 ### Launch Containers
@@ -95,7 +96,7 @@ sudo ./engine start beta  ./rootfs-beta  /bin/sh --soft-mib 64 --hard-mib 96
 Started container 'alpha' pid=4810
 Started container 'beta' pid=4819
 ```
-
+![ss](Screenshots/4.png)
 ### CLI Commands
 
 ```bash
@@ -127,7 +128,7 @@ Container 'test' finished: exited (code=0)
 Log for 'test':
 hello from container
 ```
-
+![ss](Screenshots/5.png)
 ---
 
 ## 3. Memory Limit Test
@@ -152,7 +153,7 @@ Container 'memtest' finished: hard_limit_killed (code=137)
 [container_monitor] HARD LIMIT container=memtest pid=4884 rss=25763840 limit=20971520
 [container_monitor] Unregister request container=memtest pid=4884
 ```
-
+![ss](Screenshots/6.png)
 This confirms the kernel module correctly detected both the soft limit breach (RSS ~16.6 MiB > 10 MiB) and the hard limit breach (RSS ~24.6 MiB > 20 MiB), then delivered SIGKILL.
 
 ---
@@ -193,7 +194,7 @@ cpu_hog alive elapsed=11 accumulator=0
 cpu_hog alive elapsed=20 accumulator=0
 cpu_hog done duration=20 accumulator=0
 ```
-
+![ss](Screenshots/7.png)
 > **Note:** In this run, c2 (nice -5) had a gap at elapsed=10, showing it was briefly preempted. The CFS weight difference between nice -5 and nice +10 is still significant, and c2 received proportionally more CPU time overall.
 
 ---
