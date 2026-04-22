@@ -5,7 +5,6 @@ A lightweight container runtime implementing Linux namespaces and a kernel modul
 ---
 
 ## 1. Team Information
-
 | Name | SRN |
 |------|-----|
 | Jagadeesh R | PES1UG24CS195 |
